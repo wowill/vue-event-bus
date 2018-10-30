@@ -1,5 +1,5 @@
 {
-  "name": "vue-event-bus",
+  "name": "vue-bus-event",
   "version": "1.0.0",
   "description": "vue-event-bus",
   "main": "index.js",
