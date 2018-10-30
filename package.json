@@ -12,7 +12,7 @@
     "typescript"
   ],
   "author": "wowill",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "vue": "^2.5.17"
   },
