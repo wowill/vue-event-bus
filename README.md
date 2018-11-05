@@ -1,5 +1,10 @@
 # vue-bus-ts typescript
+
 Vue-bus-ts is a vue-event-bus plugin that supports typescripte
+
+## keywords
+
+Vue-event-bus Vue-event Vue-event-bus-ts Vue-event-ts
 
 ## License
 
