@@ -21,7 +21,7 @@ import Vue from 'vue';
 import EventBus from 'vue-bus-ts';
 
 Vue.use(EventBus);
-var bus = new EventBus();
+var bus = new EventBus.Bus();
 
 new Vue({
   bus,
