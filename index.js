@@ -1,51 +1,47 @@
-import _Vue from 'vue'
 
-class EventBus {
-
-  private $id!: number;
-  [index: string]: any;
-
-  public $on(action: string, fn: any): void {
+class Bus {
+  $emit (action) {
     if (!this[action]) {
-      this[action] = [fn];
+      return
+    }
+
+    var args = [].slice.call(arguments, 1)
+    var results = this[action].map(fn => fn.apply(this, args))
+    return results.length > 1 ? results : results[0]
+  }
+
+  $on (action, fn) {
+    if (!this[action]) {
+      this[action] = [fn]
     } else {
-      this[action].push(fn);
+      this[action].push(fn)
     }
 
-    this.$id = this.$id || 0;
-    fn.$id = ++this.$id;
-    return fn.$id;
+    this.$id = this.$id || 0
+    fn.$id = ++this.$id
+    return fn.$id
   }
 
-  public $emit(action: string): any {
+  $off (action, id) {
     if (!this[action]) {
-      return;
-    }
-
-    const args = [].slice.call(arguments, 1);
-    const results = this[action].map((fn: any) => fn.apply(this, args));
-    return results.length > 1 ? results : results[0];
-  }
-
-  public $off(action: string, id: number): void {
-    if (!this[action]) {
-      return;
+      return
     }
 
     if (id) {
-      this[action] = this[action].filter((fn: any) => fn.$id !== id);
+      this[action] = this[action].filter(fn => fn.$id !== id)
     } else {
-      this[action] = null;
+      this[action] = null
     }
   }
 
-  public $subscribed(action: string): any {
-    return this[action] && this[action].length > 0;
+  $subscribed (action) {
+    return this[action] && this[action].length > 0
   }
 }
-
-export default BusPlugin = {
-  install(Vue: typeof _Vue): void {
-    Vue.prototype.$bus = new EventBus();
+var index = {
+  Bus: Bus,
+  install(Vue) {
+    Vue.prototype.$bus = new Bus();
   },
 };
+export default index;

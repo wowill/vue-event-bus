@@ -2,7 +2,7 @@ import _Vue from 'vue'; // <-- notice the changed import
 import "./vue";
 
 export declare class Bus {
-  $on(action: string, fn: any): void;
+  $on(action: string, fn: any): any;
   $emit(action: string): any;
   $off(action: string, id: number): void;
   $subscribed(action: string): any;
