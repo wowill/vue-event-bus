@@ -42,7 +42,7 @@ new Vue({
 
 var eventId = this.$bus.$on('event_name', 'callback_function') // return this event id
 
-var eventResult = this.$bus.$emit('event_name') // return this result from this event
+var eventResult = this.$bus.$emit('event_name', params) // return this result from this event
 
 this.$bus.$on('event_name', 'callback_function') // return to unbind event binding
 

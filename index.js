@@ -1,11 +1,11 @@
 
 class Bus {
-  $emit (action) {
+  $emit (action, ...params) {
     if (!this[action]) {
       return
     }
 
-    var args = [].slice.call(arguments, 1)
+    var args = [].slice.call(params, 0)
     var results = this[action].map(fn => fn.apply(this, args))
     return results.length > 1 ? results : results[0]
   }
