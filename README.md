@@ -47,13 +47,13 @@ var eventId = this.$bus.$on('event_name', function (params: any) => {
 
 var eventResult = this.$bus.$emit('event_name', params)
 /*
-params can pass in any form of value, including Array, Object, String, Number or even array expansion items.or example, 
+params can pass in any form of value, including Array, Object, String, Number, null, undefined or even array expansion items.or example, 
 1. this.$bus.$emit('event_name', [1,2,3])
 2. this.$bus.$emit('event_name', {})
 3. this.$bus.$emit('event_name', 'string')
 4. let a = 1, b = 'test', c = [1, 2, 3], d = {a: 'test'}
     this.$bus.$emit('event_name', a, b ,c, d)
-
+5. this.$bus.$emit('event_name', null)
 return this result from this event
 */
 
