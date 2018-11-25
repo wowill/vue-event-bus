@@ -1,6 +1,6 @@
 {
   "name": "vue-bus-ts",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "vue-event-bus",
   "main": "index.js",
   "scripts": {
