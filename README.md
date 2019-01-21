@@ -34,7 +34,7 @@ new Vue({
 
 ```
 
-> $on
+> $on(action: string, fn: any): any
 
 ```bash
   #*.vue
@@ -46,7 +46,7 @@ new Vue({
 
 ```
 
-> $emit
+> $emit(action: string, params?: any): any
 ```bash
   #*.vue
   // params can pass in any form of value, including Array, Object, String, Number, null, undefined or even array expansion items.or example, 
@@ -59,18 +59,19 @@ new Vue({
   4. let a = 1, b = 'test', c = [1, 2, 3], d = {a: 'test'}
      var result = this.$bus.$emit('event_name', a, b ,c, d)
   5. var result = this.$bus.$emit('event_name', null)
+  6. var result = this.$bus.$emit('event_name')
 
 ```
 
 
-> $off
+> $off(action: string, id: number): void
 ```bash
   #*.vue
 
   this.$bus.$off('event_name', eventId)// To unbind event binding, eventId is the return value of this.$bus.$on 
 ```
 
-> $subscribed
+> $subscribed(action: string): boolean
 ```bash
   #*.vue
 
