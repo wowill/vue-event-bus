@@ -1,5 +1,12 @@
 
 class Bus {
+
+  /**
+   * To run the callback function of the event name 'action' binding
+   * @param {string} action event name
+   * @param  {any} params 
+   * @returns {any} event execution result
+   */
   $emit (action, ...params) {
     if (!this[action]) {
       return
@@ -10,6 +17,12 @@ class Bus {
     return results.length > 1 ? results : results[0]
   }
 
+  /**
+   * To bind the callback function to an event named 'action'
+   * @param {string} action event name
+   * @param {any} fn callback function
+   * @returns {number} event id
+   */
   $on (action, fn) {
     if (!this[action]) {
       this[action] = [fn]
@@ -22,6 +35,12 @@ class Bus {
     return fn.$id
   }
 
+  /**
+   * To unbind the event corresponding to the 'id'
+   * @param {string} action event name
+   * @param {number} id 
+   * @returns {void}
+   */
   $off (action, id) {
     if (!this[action]) {
       return
@@ -34,6 +53,11 @@ class Bus {
     }
   }
 
+  /**
+   * To determine whether the event named 'action' is bound.
+   * @param {string} action event name
+   * @returns {boolean} If the value is true, the event named 'actoin' is already bound to the callback function. vice versa.
+   */
   $subscribed (action) {
     return this[action] && this[action].length > 0
   }
